@@ -24,11 +24,14 @@
     <!-- App CSS -->
     <link rel="stylesheet" href="/styles/layout.css" type="text/css" />
 
-    <!-- Navbar Css -->
+    <!-- Navbar CSS -->
     <link rel="stylesheet" href="/styles/nav.css" type="text/css" />
 
-    <!---Header Css-->
+    <!---Header CSS-->
     <link rel="stylesheet" href="/styles/header.css" type="text/css" />
+
+    <!--New Tweet CSS-->
+    <link rel="stylesheet" href="/styles/new-tweet.css" type="text/css" />
 
     <!-- Font awesome CDN-->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta2/css/all.min.css" integrity="sha512-YWzhKL2whUzgiheMoBFwW8CKV4qpHQAEuvilg9FAn5VJUDwKZZxkJNuGM4XkWuk94WCrrwslk8yWNGmY1EduTA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
@@ -55,13 +58,23 @@
       </div>
       <br>
       <div>
-          <h2>Abdulrahman Said</h2>
+          <h2><strong>Abdulrahman</strong> Said</h2>
       </div>
     </header>
     <!-- Page-specific (main) content here -->
     <main class="container">
-      <h1>You Won't Believe This</h1>
-      <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ullam facilis repellendus molestiae sunt laudantium repudiandae sed tenetur, placeat aliquam iste nulla earum a ad sapiente ratione, aut labore, sint aspernatur!</p>
+      <section class="new-tweet">
+        <h2>Compose Tweet</h2>
+        <form class="formUpdate" action="/tweets" method="POST">
+          <label class="hummingAbout" for="tweet-text"><strong>What are you humming about?</strong></label>
+          <textarea name="text" id="tweet-text"></textarea>
+          <br>
+          <div class="tweetNumber">
+            <button class="tweetButton" type="submit">Tweet</button>
+            <output name="counter" class="counter" for="tweet-text">140</output>
+          </div>
+        </form>
+      </section>
     </main>
   </body>
 </html>

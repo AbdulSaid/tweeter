@@ -1,0 +1,36 @@
+.container {
+  padding: 10px;
+}
+
+.formUpdate {
+  display: flex;
+  flex-direction: column;
+}
+
+.tweetButton {
+  background-color: #4056A1;
+  color: #FFFFFF;
+  font-family: 'Bungee',sans-serif;
+}
+
+.hummingAbout {
+  border-bottom: black;
+}
+
+.counter {
+  font-family: 'Bungee',sans-serif;
+}
+
+#tweet-text {
+  border-bottom: black;
+}
+
+.tweetNumber {
+  display: flex;
+  justify-content: space-between;
+}
+
+textarea {
+  outline: none;
+  
+}
