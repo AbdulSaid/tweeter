@@ -1,0 +1,13 @@
+header {
+  /* position: absolute; */
+  z-index: 1;
+  height: 400px;
+  width: 100%;
+  background-color: #0085cc;
+  background-image: url('../images/cross-scratches.png');
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  color: #FFFFFF;
+}
