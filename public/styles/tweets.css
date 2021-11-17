@@ -1,11 +1,11 @@
 .articleTweets {
   background-color: #f4f1ec;
-  border-style: solid;
+  /* border-style: solid;
   padding-top: 0;
   padding-top: 5px;
   padding-left: 20px;
   padding-right: 20px;
-  padding-bottom: 20px;
+  padding-bottom: 20px; */
 }
 
 .footerTweets {
@@ -14,6 +14,7 @@
   justify-content: space-between;
   font-size: medium;
   margin-top: 5px;
+  
 }
 
 .tweetsHeader {
@@ -46,4 +47,16 @@
 .areaForTweets {
   border-bottom: solid;
   padding-bottom: 10px;
+}
+
+.tweetDiv {
+  margin-bottom: 5px;
+  background-color: #f4f1ec;
+  border-style: solid;
+  border-width: 2px;
+  padding-top: 0;
+  padding-top: 5px;
+  padding-left: 20px;
+  padding-right: 20px;
+  padding-bottom: 20px;
 }
