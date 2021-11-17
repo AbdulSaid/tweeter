@@ -22,7 +22,16 @@
 }
 
 #tweet-text {
-  border-bottom: black;
+  border-bottom: solid;
+  border: none;
+  border-bottom: 4px solid;
+  background-color: #f4f1ec;
+  
+}
+
+#tweet-text::placeholder {
+  color: black;  
+  font-weight: 600;
 }
 
 .tweetNumber {
