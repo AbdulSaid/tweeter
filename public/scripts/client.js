@@ -38,6 +38,7 @@ $(document).ready(function () {
   loadTweets();
 
   const createTweetElement = function (tweet) {
+    let safeText = `${escape(tweet.content.text)}`
     let $tweet = $(
       `<div class="tweetDiv">
     <header class="tweetsHeader">
@@ -50,7 +51,7 @@ $(document).ready(function () {
       </section>
     </header>
     <section class="areaForTweets">
-      ${tweet.content.text}
+      ${safeText}
     </section>
     <footer class="footerTweets">
       <div>${timeago.format(tweet.created_at)}</div>
