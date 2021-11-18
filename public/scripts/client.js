@@ -4,13 +4,12 @@
  * Reminder: Use (and do all your DOM work in) jQuery's document ready function
  */
 $(document).ready(function () {
-
   const renderTweets = function (tweets) {
     const $tweetContainer = $(".articleTweets");
     $tweetContainer.empty();
-    const localTweets = tweets.sort((a,b) => {
-      return b.created_at - a.created_at
-    } )
+    const localTweets = tweets.sort((a, b) => {
+      return b.created_at - a.created_at;
+    });
     // loops through tweets
     $.each(localTweets, (i) => {
       // calls createTweetElement for each tweet
@@ -68,30 +67,40 @@ $(document).ready(function () {
     return $tweet;
   };
 
-  
+  const createErrorMessage = function (error) {
+    let $errorDiv = $(
+      `
+      
+      `
+    );
+  };
+
   // renderTweets(data);
-  
-    $("form").on("submit", function (event) {
-      event.preventDefault();
-      const value = $(this).serialize()
-      console.log("what is this", value);
-      if (value === "text=") {
-        alert("Tweet content is too short")
-      } else if (value.length > 140) {
-        alert("Tweet content is too long")
-      } else {
-        $.post("/tweets", value)
+
+  $(".errLong").hide();
+  $(".errShort").hide();
+
+  $("form").on("submit", function (event) {
+    event.preventDefault();
+
+    const value = $(this).serialize();
+    console.log("what is this", value);
+    if (value === "text=") {
+      $(".errShort").slideDown();
+    } else if (value.length > 140) {
+      $(".errLong").slideDown();
+    } else {
+      $.post("/tweets", value)
         .then((result) => {
-          loadTweets()
+          $("#tweet-text").val("");
+          $(".errLong").hide();
+      $(".errShort").hide();
+          loadTweets();
         })
         .catch((err) => {
           console.log("error with ajax");
           console.log(err);
         });
-      }
-        
-    });
-  
-
- 
+    }
+  });
 });
