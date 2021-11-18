@@ -5,53 +5,42 @@
  */
 $(document).ready(function () {
 
-const data = [
-  {
-    "user": {
-      "name": "Newton",
-      "avatars": "https://i.imgur.com/73hZDYK.png"
-      ,
-      "handle": "@SirIsaac"
-    },
-    "content": {
-      "text": "If I have seen further it is by standing on the shoulders of giants"
-    },
-    "created_at": 1461116232227
-  },
-  {
-    "user": {
-      "name": "Descartes",
-      "avatars": "https://i.imgur.com/nlhLi3I.png",
-      "handle": "@rd" },
-    "content": {
-      "text": "Je pense , donc je suis"
-    },
-    "created_at": 1461113959088
-  }
-]
+  const renderTweets = function (tweets) {
+    const $tweetContainer = $(".articleTweets");
+    $tweetContainer.empty();
+    const localTweets = tweets.sort((a,b) => {
+      return b.created_at - a.created_at
+    } )
+    // loops through tweets
+    $.each(localTweets, (i) => {
+      // calls createTweetElement for each tweet
+      const $tweet = createTweetElement(tweets[i]);
+      $tweetContainer.append($tweet);
+    });
 
-const renderTweets = function(tweets) {
-  const $tweetContainer = $(".articleTweets")
-  // loops through tweets
-  $.each(tweets, (i) => {
-    console.log('data',data)
-    console.log('userinfo',tweets[i])
-    // calls createTweetElement for each tweet
-   const $tweet = createTweetElement(tweets[i])
-   console.log("$tweett",$tweet)
-   $tweetContainer.append($tweet);
+    // takes return value and appends it to the tweets container
+    return $tweetContainer;
+  };
 
-  })
+  const loadTweets = function () {
+    $.ajax({
+      url: "/tweets",
+      method: "GET",
+    })
+      .then((result) => {
+        // console.log("this is the result", result);
+        renderTweets(result);
+      })
+      .catch((err) => {
+        console.log("this is error from get ajax", err);
+      });
+  };
 
-  // takes return value and appends it to the tweets container
-  return $tweetContainer
+  loadTweets();
 
-}
-
-
-const createTweetElement = function(tweet) {
-  let $tweet = $(
-    `<div class="tweetDiv">
+  const createTweetElement = function (tweet) {
+    let $tweet = $(
+      `<div class="tweetDiv">
     <header class="tweetsHeader">
       <section class="namePic">
         <img class="profileImage" src=${tweet.user.avatars} />
@@ -73,14 +62,36 @@ const createTweetElement = function(tweet) {
       </div>
     </footer>
     </div>`
-    )
+    );
+
+    // ...
+    return $tweet;
+  };
+
   
-  // ...
-  return $tweet;
-}
+  // renderTweets(data);
+  
+    $("form").on("submit", function (event) {
+      event.preventDefault();
+      const value = $(this).serialize();
+      console.log("what is this", value);
+      if (value === "text=") {
+        alert("Tweet content is too short")
+      } else if (value.length > 140) {
+        alert("Tweet content is too long")
+      } else {
+        $.post("/tweets", value)
+        .then((result) => {
+          loadTweets()
+        })
+        .catch((err) => {
+          console.log("error with ajax");
+          console.log(err);
+        });
+      }
+        
+    });
+  
 
-renderTweets(data);
-
-
+ 
 });
-
