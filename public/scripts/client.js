@@ -73,7 +73,7 @@ $(document).ready(function () {
   
     $("form").on("submit", function (event) {
       event.preventDefault();
-      const value = $(this).serialize();
+      const value = $(this).serialize()
       console.log("what is this", value);
       if (value === "text=") {
         alert("Tweet content is too short")
