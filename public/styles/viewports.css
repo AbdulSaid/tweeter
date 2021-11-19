@@ -1,6 +1,6 @@
 
   /* Another smartphone breakpoint is maximum width of around 420px */
-  @media only screen and (max-width: 420px) {
+  @media only screen and (max-width: 768px) {
     /* Write smartphone only styles here */
    body {
      width: 100%;
@@ -13,11 +13,30 @@
       background-image: url('../images/cross-scratches.png');
       width: 100%;
     }
+    .container {
+      width: 100%;
+      padding: 2em;
+    }
   }
 
   /* Tablet: minimum width of 768px to maximum width of 1024px */
-  @media only screen and (min-width: 768px) and (max-width: 1024px) {
+  @media only screen and (min-width: 768px) and (max-width: 1023px) {
     /* Write Tablet only CSS here */
+    body {
+      width: 100%;
+    }
+     .mainHeader {
+       width: 100%;
+     }
+     nav {
+       background-color: #0085cc;
+       background-image: url('../images/cross-scratches.png');
+       width: 100%;
+     }
+     .container {
+      width: 100%;
+      padding: 2em;
+    }
   }
 
 
@@ -32,14 +51,17 @@
       display: flex;
     }
     .mainHeader {
-      width: 25%;
+      width: 10px;
+      height: 10px;
       padding: 10em;
-      margin: 20px;
+      margin: 5%;
       
     }
 
     .container {
-      width: 70%;
+      width: 60%;
+      margin-left: 5%;
+      padding: 2em;
     }
 
   }

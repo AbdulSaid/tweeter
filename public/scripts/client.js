@@ -88,6 +88,7 @@ $(document).ready(function () {
     if (value === "text=") {
       $(".errShort").slideDown();
     } else if (value.length > 140) {
+      $(".errShort").hide();
       $(".errLong").slideDown();
     } else {
       $.post("/tweets", value)
