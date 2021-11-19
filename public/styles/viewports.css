@@ -1,0 +1,45 @@
+
+  /* Another smartphone breakpoint is maximum width of around 420px */
+  @media only screen and (max-width: 420px) {
+    /* Write smartphone only styles here */
+   body {
+     width: 100%;
+   }
+    .mainHeader {
+      width: 100%;
+    }
+    nav {
+      background-color: #0085cc;
+      background-image: url('../images/cross-scratches.png');
+      width: 100%;
+    }
+  }
+
+  /* Tablet: minimum width of 768px to maximum width of 1024px */
+  @media only screen and (min-width: 768px) and (max-width: 1024px) {
+    /* Write Tablet only CSS here */
+  }
+
+
+  /* Laptops / Desktops: minimum width of 1024px */
+  @media only screen and (min-width: 1024px) {
+    /* Write CSS rules that target Laptop/Desktop screen sizes and beyond */
+    nav {
+      width: 100;
+    }
+
+    .bigContainer {
+      display: flex;
+    }
+    .mainHeader {
+      width: 25%;
+      padding: 10em;
+      margin: 20px;
+      
+    }
+
+    .container {
+      width: 70%;
+    }
+
+  }

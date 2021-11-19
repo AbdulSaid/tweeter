@@ -4,6 +4,9 @@
     <!-- Meta Information -->
     <title>Tweeter - Home Page</title>
 
+    <!--Meta tag for viewport-->
+    <meta name='viewport' content='width=device-width, initial-scale=1.0, maximum-scale=1.0' />
+
     <!-- External CSS -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css" type="text/css" />
     <!---Bungee Font -->
@@ -36,6 +39,9 @@
      <!--New Tweet CSS-->
      <link rel="stylesheet" href="/styles/tweets.css" type="text/css" />
 
+     <!--ViewPorts-->
+     <link rel="stylesheet" href="/styles/viewports.css" type="text/css" />
+
     <!-- Font awesome CDN-->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta2/css/all.min.css" integrity="sha512-YWzhKL2whUzgiheMoBFwW8CKV4qpHQAEuvilg9FAn5VJUDwKZZxkJNuGM4XkWuk94WCrrwslk8yWNGmY1EduTA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 
@@ -59,6 +65,7 @@
         <i class="arrowDown fa-solid fa-angles-down"></i>
       </div>
     </nav>
+    <div class="bigContainer">
     <header class="mainHeader">
       <div>
           <img src="/images/profile-hex.png"> 
@@ -73,7 +80,6 @@
       <div class="errLong"><i class="fas fa-exclamation-triangle"></i> The Tweet Content is too long <i class="fas fa-exclamation-triangle"></i></div>
       <div class="errShort"><i class="fas fa-exclamation-triangle"></i> The Tweet Content is does not have enough characters <i class="fas fa-exclamation-triangle"></i></div>
       <section class="new-tweet">
-        <h2>Compose Tweet</h2>
         <form class="formUpdate" action="/tweets" method="POST">
           <textarea name="text" id="tweet-text" placeholder="What are you humming about?"></textarea>
           <br>
@@ -88,5 +94,6 @@
         
       </article>
     </main>
+  </div>
   </body>
 </html>
