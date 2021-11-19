@@ -1,33 +1,23 @@
-/*
- * Client-side JS logic goes here
- * jQuery is already loaded
- * Reminder: Use (and do all your DOM work in) jQuery's document ready function
- */
-$(document).ready(function() {
-  const renderTweets = function(tweets) {
+$(document).ready(function () {
+  const renderTweets = function (tweets) {
     const $tweetContainer = $(".articleTweets");
     $tweetContainer.empty();
     const localTweets = tweets.sort((a, b) => {
       return b.created_at - a.created_at;
     });
-    // loops through tweets
     $.each(localTweets, (i) => {
-      // calls createTweetElement for each tweet
       const $tweet = createTweetElement(tweets[i]);
       $tweetContainer.append($tweet);
     });
-
-    // takes return value and appends it to the tweets container
     return $tweetContainer;
   };
 
-  const loadTweets = function() {
+  const loadTweets = function () {
     $.ajax({
       url: "/tweets",
       method: "GET",
     })
       .then((result) => {
-        // console.log("this is the result", result);
         renderTweets(result);
       })
       .catch((err) => {
@@ -37,13 +27,13 @@ $(document).ready(function() {
 
   loadTweets();
 
-  const escape = function(str) {
+  const escape = function (str) {
     let div = document.createElement("div");
     div.appendChild(document.createTextNode(str));
     return div.innerHTML;
   };
 
-  const createTweetElement = function(tweet) {
+  const createTweetElement = function (tweet) {
     let safeText = `<p>${escape(tweet.content.text)}</p>`;
     let $tweet = $(
       `<div class="tweetDiv">
@@ -69,18 +59,13 @@ $(document).ready(function() {
     </footer>
     </div>`
     );
-
-    // ...
     return $tweet;
   };
-
-
-  // renderTweets(data);
 
   $(".errLong").hide();
   $(".errShort").hide();
 
-  $("form").on("submit", function(event) {
+  $("form").on("submit", function (event) {
     event.preventDefault();
 
     const value = $(this).serialize();
