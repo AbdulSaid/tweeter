@@ -13,9 +13,9 @@ This repository is the starter code for the project: Students will fork and clon
 4. Go to <http://localhost:8080/> in your browser.
 
 ## Screenshots
-!["Screenshot of main Tweet page"] (https://github.com/AbdulSaid/tweeter/blob/master/public/images/mainTweet.png?raw=true)
-!["Screenshot of half page"] (https://github.com/AbdulSaid/tweeter/blob/master/public/images/halfTweet.png?raw=true)
-!["Screen for validation error"] (https://github.com/AbdulSaid/tweeter/blob/master/public/images/validationError.png?raw=true)
+![This is a screenshot of the main page](https://github.com/AbdulSaid/tweeter/blob/master/public/images/mainTweet.png?raw=true)
+![This is a screenshot of when the viewport is shown on a phone or a tablet](https://github.com/AbdulSaid/tweeter/blob/master/public/images/halfTweet.png?raw=true)
+![This is a screenshot of the error messages](https://github.com/AbdulSaid/tweeter/blob/master/public/images/validationError.png?raw=true)
 
 ## Dependencies
 
