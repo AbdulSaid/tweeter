@@ -3,8 +3,8 @@
  * jQuery is already loaded
  * Reminder: Use (and do all your DOM work in) jQuery's document ready function
  */
-$(document).ready(function () {
-  const renderTweets = function (tweets) {
+$(document).ready(function() {
+  const renderTweets = function(tweets) {
     const $tweetContainer = $(".articleTweets");
     $tweetContainer.empty();
     const localTweets = tweets.sort((a, b) => {
@@ -21,7 +21,7 @@ $(document).ready(function () {
     return $tweetContainer;
   };
 
-  const loadTweets = function () {
+  const loadTweets = function() {
     $.ajax({
       url: "/tweets",
       method: "GET",
@@ -37,14 +37,14 @@ $(document).ready(function () {
 
   loadTweets();
 
-  const escape = function (str) {
+  const escape = function(str) {
     let div = document.createElement("div");
     div.appendChild(document.createTextNode(str));
     return div.innerHTML;
   };
 
-  const createTweetElement = function (tweet) {
-    let safeText = `<p>${escape(tweet.content.text)}</p>`
+  const createTweetElement = function(tweet) {
+    let safeText = `<p>${escape(tweet.content.text)}</p>`;
     let $tweet = $(
       `<div class="tweetDiv">
     <header class="tweetsHeader">
@@ -80,7 +80,7 @@ $(document).ready(function () {
   $(".errLong").hide();
   $(".errShort").hide();
 
-  $("form").on("submit", function (event) {
+  $("form").on("submit", function(event) {
     event.preventDefault();
 
     const value = $(this).serialize();
@@ -95,7 +95,7 @@ $(document).ready(function () {
         .then((result) => {
           $("#tweet-text").val("");
           $(".errLong").hide();
-      $(".errShort").hide();
+          $(".errShort").hide();
           loadTweets();
         })
         .catch((err) => {
